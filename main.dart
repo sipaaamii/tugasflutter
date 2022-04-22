@@ -1,25 +1,37 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp (MyApp());
 }
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-         primarySwatch: Colors.blue,
+class MyApp extends StatelessWidget{
+  final List<Color>myColor=[
+    Colors.pink,
+    Colors.blue,
+    Colors.purple,
+    Colors.amber
+  ];
+  final List<Widget>myList =List.generate(
+    100,
+    (index) => Text(
+      "${index+1}",
+      style: TextStyle(
+        fontSize: 15+
+        double.parse(index.toString()),
       ),
-      home: Scaffold(
-        body: Center(child : Text("Cipaa")) ,
-        appBar: AppBar(
-          title: Text("Sipaami"),
+    ),
+  );
+
+ @override
+Widget build (BuildContext context) {
+  return MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(title: Text("S i p a a m i"),
+       ),
+        body: ListView(
+       children: myList,
+      )
       ),
-      ),
-    );
-  }
+      );
+}
 }
